@@ -1,0 +1,10 @@
+[
+  {
+    "_id": "5d713995b721c3bb38c1f5d0",
+    "type": "Led",
+    "deviceId": "LED1",
+    "status": "on",
+    "timeUpdate": "Sat Jan 15 2022 20:32:33 GMT+0700",
+    "info": "IOT device"
+  }
+]

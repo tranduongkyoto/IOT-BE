@@ -1,0 +1,10 @@
+[
+  {
+    "_id": "5d725a037b292f5f8ceff787",
+    "type": "Sensor",
+    "deviceId": "Sensor1",
+    "status": "on",
+    "log": "5d713a66ec8f2b88b8f830b8",
+    "info": "IOT device"
+  }
+]

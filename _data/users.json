@@ -1,0 +1,30 @@
+[
+  {
+    "_id": "5d7a514b5d2c12c7449be042",
+    "name": "Admin Account",
+    "email": "admin@gmail.com",
+    "role": "admin",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be044",
+    "name": "Nguyen Quang Huy",
+    "email": "huy@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be045",
+    "name": "Tran Dang Duong",
+    "email": "duong@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "_id": "5d7a514b5d2c12c7449be046",
+    "name": "Trieu Tai Duc",
+    "email": "duc@gmail.com",
+    "role": "user",
+    "password": "123456"
+  }
+]
