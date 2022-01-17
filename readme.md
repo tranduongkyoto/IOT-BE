@@ -1,6 +1,6 @@
-# DevCamper API (Project of a course in udemy(author: Brad Traversy))
+# IOT_BE
 
-> Backend API for DevCamper application, which is a bootcamp directory website
+> Backend API for IOT Project
 
 ## Usage
 
@@ -33,12 +33,6 @@ node seeder -d
 # Import all data
 node seeder -i
 ```
-
-## Demo
-
-The API is live at [devcamper.io](https://devcamper.io)
-
-Extensive documentation with examples [here](https://documenter.getpostman.com/view/8923145/SVtVVTzd?version=latest)
 
 - Version: 1.0.0
 - License: MIT
