@@ -8,7 +8,7 @@ const sendMessage = async (exchange, routingKey, msg) => {
   try {
     console.log('Publishing');
 
-    await channel.assertExchange(exchange, 'direct', {
+    await channel.assertExchange(exchange, 'topic', {
       durable: true,
     });
     await channel.publish(
@@ -33,7 +33,7 @@ const receiveMessage = async (exchange, routingKey, queue) => {
   const connection = await amqplib.connect(amqpUrl, 'heartbeat=60');
   const channel = await connection.createChannel();
   channel.prefetch(10);
-  await channel.assertExchange(exchange, 'direct', {
+  await channel.assertExchange(exchange, 'topic', {
     durable: true,
   });
   await channel.assertQueue(queue, {

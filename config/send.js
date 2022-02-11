@@ -1,3 +1,3 @@
 const { sendMessage } = require('./amqp');
 
-sendMessage('iot', 'led/1', '');
+sendMessage('iot', 'led.1', '');
