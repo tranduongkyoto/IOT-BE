@@ -26,6 +26,7 @@ const auth = require('./routes/auth');
 const users = require('./routes/users');
 const data = require('./routes/data');
 const { urlencoded } = require('express');
+const getSensorData = require('./jobs/getSensorData');
 const app = express();
 
 //Body Parser
@@ -66,19 +67,11 @@ app.use(cors());
 //set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-const bree = new Bree({
-  jobs: [
-    {
-      name: 'getSensorData',
-      interval: '1 minute',
-    },
-  ],
-});
-bree.start();
-
 app.get('/', (req, res, next) => {
   res.send('Hello from Duong Ace');
 });
+
+getSensorData();
 
 // Mount routers
 app.use('/api/auth', auth);

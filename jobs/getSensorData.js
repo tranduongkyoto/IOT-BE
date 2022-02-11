@@ -5,8 +5,8 @@ const asyncHandler = require('../middlewares/async');
 const Log = require('../models/Log');
 const sensorTopic = '/iot/sensor';
 const logId = '5d713a66ec8f2b88b8f830b8';
-connectDB();
-const main = asyncHandler(async () => {
+//connectDB();
+const getSensorData = asyncHandler(async () => {
   const newLog = {
     date: new Date(),
     humidity: Math.floor(Math.random() * 20) + 5,
@@ -16,7 +16,7 @@ const main = asyncHandler(async () => {
   const consumeEmmitter = await receiveMessage('iot', sensorTopic, 'sensor');
   consumeEmmitter.on('data', async (message, ack) => {
     //const sensor = await Sensor.find({ deviceId: msg.deviceId });
-    console.log(message);
+    //console.log(message);
     var log = await Log.findById(logId);
     const newData = [...log.data];
     newData.push(JSON.parse(message));
@@ -24,5 +24,7 @@ const main = asyncHandler(async () => {
     await log.save();
   });
   consumeEmmitter.on('error', (error) => console.error(error));
+  //process.exit();
 });
-main();
+
+module.exports = getSensorData;

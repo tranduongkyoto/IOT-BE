@@ -12,18 +12,17 @@ const DeviceSchema = new mongoose.Schema({
   status: {
     type: String,
   },
-  // timeActivity: {
-  //   type: Number,
-  // },
-  timeUpdate: {
-    type: Date,
-  },
   info: {
     type: String,
   },
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  log: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'DeviceLog',
+    required: true,
   },
 });
 
