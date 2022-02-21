@@ -12,9 +12,9 @@ const getSensorData = asyncHandler(async () => {
     humidity: Math.floor(Math.random() * 20) + 5,
     temperature: Math.floor(Math.random() * 70) + 30,
   };
-  sendMessage('amqp.lib', sensorTopic, newLog);
+  sendMessage('amq.topic', sensorTopic, newLog);
   const consumeEmmitter = await receiveMessage(
-    'amqp.lib',
+    'amq.topic',
     sensorTopic,
     'sensor'
   );

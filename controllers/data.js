@@ -64,7 +64,10 @@ exports.updateDeviceStatus = asyncHandler(async (req, res, next) => {
 // @access    Private/User
 exports.getSensorData = asyncHandler(async (req, res, next) => {
   const sensorId = req.params.id;
-  const sensor = await Sensor.findById(sensorId);
+  const sensor = await Sensor.findById(sensorId).populate({
+    path: 'log',
+    model: Log,
+  });
   if (!sensor) {
     return next(new ErrorResponse('Not found sensor'));
   }
