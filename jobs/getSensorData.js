@@ -12,18 +12,20 @@ const getSensorData = asyncHandler(async () => {
     humidity: Math.floor(Math.random() * 20) + 5,
     temperature: Math.floor(Math.random() * 70) + 30,
   };
-  sendMessage('amq.topic', sensorTopic, newLog);
+  //sendMessage('amq.topic', sensorTopic, newLog);
   const consumeEmmitter = await receiveMessage(
     'amq.topic',
     sensorTopic,
     'sensor'
   );
-  consumeEmmitter.on('data', async (message, ack) => {
+  consumeEmmitter.on('data', async (buffer, ack) => {
     //const sensor = await Sensor.find({ deviceId: msg.deviceId });
     //console.log(message);
     var log = await Log.findById(logId);
     const newData = [...log.data];
-    newData.push(JSON.parse(message));
+    const message = JSON.parse(buffer);
+    message.date = new Date();
+    newData.push(message);
     log.data = newData;
     await log.save();
   });
