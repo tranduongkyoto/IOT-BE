@@ -1,6 +1,8 @@
 const amqplib = require('amqplib');
 const EventEmitter = require('events');
-const amqpUrl = process.env.AMQP_URL || 'amqp://localhost';
+const amqpUrl =
+  process.env.AMQP_URL ||
+  'amqps://bznsuzch:XrXHRS9IYh-xvN6aywUwGRMC_Pb_c461@gerbil.rmq.cloudamqp.com/bznsuzch';
 
 const sendMessage = async (exchange, routingKey, msg) => {
   const connection = await amqplib.connect(amqpUrl, 'heartbeat=60');
