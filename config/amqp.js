@@ -13,11 +13,7 @@ const sendMessage = async (exchange, routingKey, msg) => {
     await channel.assertExchange(exchange, 'topic', {
       durable: true,
     });
-    await channel.publish(
-      exchange,
-      routingKey,
-      Buffer.from(JSON.stringify(msg))
-    );
+    await channel.publish(exchange, routingKey, Buffer.from(msg));
 
     console.log('Message published');
     //connection.close();
